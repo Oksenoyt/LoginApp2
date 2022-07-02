@@ -14,10 +14,21 @@ class LoginViewController: UIViewController {
     
     let user = "qwe"
     let password = "asd"
+    
+    let overlayButton = UIButton(type: .custom)
+    let eyeEmpty = UIImage(systemName: "eye")
+    let eyeSlash = UIImage(systemName: "eye.slash")
+    var passwordView = true
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupEyeButton()
+    }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let welcomeVC = segue.destination as? WelcomeViewController else { return }
         welcomeVC.greetings = userTextField.text
+        welcomeVC.modalPresentationStyle = .fullScreen
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -50,6 +61,24 @@ class LoginViewController: UIViewController {
     @IBAction func getPassword() {
         showAlert(title: "Password:", message: password)
     }
+    
+    @IBAction func togglePassordView(_ sender: Any) {
+        passwordTextField.isSecureTextEntry.toggle()
+        passwordView = !passwordView
+        if passwordView {
+            overlayButton.setImage(eyeEmpty, for: .normal)
+        } else {
+            overlayButton.setImage(eyeSlash, for: .normal)
+        }
+    }
+    
+    private func setupEyeButton() {
+        overlayButton.setImage(eyeSlash, for: .normal)
+        overlayButton.alpha = 0.4
+        overlayButton.addTarget(self, action: #selector(togglePassordView), for: .touchUpInside)
+        passwordTextField.rightView = overlayButton
+        passwordTextField.rightViewMode = .always
+    }
 }
 
 //MARK - UIAlertController
@@ -61,3 +90,5 @@ extension LoginViewController {
         present(alert, animated: true)
     }
 }
+
+
