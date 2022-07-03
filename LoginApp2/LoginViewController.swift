@@ -12,13 +12,13 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var userTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
-    let user = "qwe"
-    let password = "asd"
+    private let user = "qwe"
+    private let password = "asd"
     
-    let overlayButton = UIButton(type: .custom)
-    let eyeEmpty = UIImage(systemName: "eye")
-    let eyeSlash = UIImage(systemName: "eye.slash")
-    var passwordView = true
+    private let overlayButton = UIButton(type: .custom)
+    private let eyeEmpty = UIImage(systemName: "eye")
+    private let eyeSlash = UIImage(systemName: "eye.slash")
+    private var passwordView = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,10 +78,10 @@ class LoginViewController: UIViewController {
         overlayButton.addTarget(self, action: #selector(togglePassordView), for: .touchUpInside)
         passwordTextField.rightView = overlayButton
         passwordTextField.rightViewMode = .always
+        //не смогла найти как подвинуть кнопку с глазом чуть левее :(
     }
 }
 
-//MARK - UIAlertController
 extension LoginViewController {
     private func showAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
