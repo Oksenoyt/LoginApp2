@@ -8,7 +8,7 @@
 import UIKit
 
 class LoginViewController: UIViewController {
-
+    
     @IBOutlet weak var userTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
@@ -24,36 +24,34 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         setupEyeButton()
     }
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let welcomeVC = segue.destination as? WelcomeViewController else { return }
         welcomeVC.greetings = userTextField.text
-        welcomeVC.modalPresentationStyle = .fullScreen
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesBegan(touches, with: event) // не поняла что делает эта строка
-        view.endEditing(true) // и что такое true or false результат при указании обоих одинаковый
+        super.touchesBegan(touches, with: event)
+        view.endEditing(true)
     }
     
     @IBAction func unwind(for segue: UIStoryboardSegue) {
         userTextField.text?.removeAll()
         passwordTextField.text?.removeAll()
     }
-
+    
     @IBAction func loginAction() {
-        guard userTextField.text == user else {
-            showAlert(title: "Invalid login or password", message: "Please, enter correct username and password")
-            passwordTextField.text?.removeAll()
+        guard userTextField.text == user, passwordTextField.text == password else {
+            showAlert(
+                title: "Invalid login or password",
+                message: "Please, enter correct username and password",
+                textField: passwordTextField
+            )
             return
-            }
-        guard passwordTextField.text == password else {
-            showAlert(title: "Invalid login or password", message: "Please, enter correct username and password")
-            passwordTextField.text?.removeAll()
-            return
-            }
+        }
+        performSegue(withIdentifier: "showWelcomeVC", sender: nil)
     }
-
+    
     @IBAction func getUserName() {
         showAlert(title: "User name:", message: user)
     }
@@ -65,11 +63,9 @@ class LoginViewController: UIViewController {
     @IBAction func togglePassordView(_ sender: Any) {
         passwordTextField.isSecureTextEntry.toggle()
         passwordView = !passwordView
-        if passwordView {
-            overlayButton.setImage(eyeEmpty, for: .normal)
-        } else {
-            overlayButton.setImage(eyeSlash, for: .normal)
-        }
+        passwordView
+        ? overlayButton.setImage(eyeEmpty, for: .normal)
+        : overlayButton.setImage(eyeSlash, for: .normal)
     }
     
     private func setupEyeButton() {
@@ -78,14 +74,15 @@ class LoginViewController: UIViewController {
         overlayButton.addTarget(self, action: #selector(togglePassordView), for: .touchUpInside)
         passwordTextField.rightView = overlayButton
         passwordTextField.rightViewMode = .always
-        //не смогла найти как подвинуть кнопку с глазом чуть левее :(
     }
 }
 
 extension LoginViewController {
-    private func showAlert(title: String, message: String) {
+    private func showAlert(title: String, message: String, textField: UITextField? = nil) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default)
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+            textField?.text?.removeAll()
+        }
         alert.addAction(okAction)
         present(alert, animated: true)
     }

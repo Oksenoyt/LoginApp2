@@ -38,7 +38,6 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="loginAction" destination="BYZ-38-t0r" eventType="touchUpInside" id="Haf-me-9do"/>
-                                    <segue destination="WjE-cQ-ZGf" kind="presentation" id="Eon-DV-0Vr"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="GZY-MI-5jv">
@@ -79,6 +78,7 @@
                     <connections>
                         <outlet property="passwordTextField" destination="wbt-81-Dli" id="OfJ-nz-ds5"/>
                         <outlet property="userTextField" destination="rdi-n3-WE5" id="WDX-ND-bED"/>
+                        <segue destination="WjE-cQ-ZGf" kind="presentation" identifier="showWelcomeVC" modalPresentationStyle="fullScreen" id="iNz-aj-bc8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -90,11 +90,11 @@
             <objects>
                 <viewController id="WjE-cQ-ZGf" customClass="WelcomeViewController" customModule="LoginApp2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nsy-05-4R1">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome, " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bdn-hU-fyh">
-                                <rect key="frame" x="20" y="267.5" width="374" height="37"/>
+                                <rect key="frame" x="20" y="294.5" width="374" height="37"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
