@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -78,17 +79,17 @@
                     <connections>
                         <outlet property="passwordTextField" destination="wbt-81-Dli" id="OfJ-nz-ds5"/>
                         <outlet property="userTextField" destination="rdi-n3-WE5" id="WDX-ND-bED"/>
-                        <segue destination="WjE-cQ-ZGf" kind="presentation" identifier="showWelcomeVC" modalPresentationStyle="fullScreen" id="iNz-aj-bc8"/>
+                        <segue destination="51P-6J-xjl" kind="presentation" identifier="showWelcomeVC" modalPresentationStyle="fullScreen" id="iNz-aj-bc8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="20" y="98"/>
         </scene>
-        <!--Welcome View Controller-->
+        <!--main info-->
         <scene sceneID="PGQ-Gh-c4h">
             <objects>
-                <viewController id="WjE-cQ-ZGf" customClass="WelcomeViewController" customModule="LoginApp2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="WjE-cQ-ZGf" customClass="CommonInfoViewController" customModule="LoginApp2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nsy-05-4R1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -132,6 +133,7 @@
                             <constraint firstItem="bdn-hU-fyh" firstAttribute="leading" secondItem="aAC-Se-HtO" secondAttribute="leading" constant="20" id="VRP-Eu-Ipw"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="main info" image="command" catalog="system" id="9HA-TH-J0y"/>
                     <connections>
                         <outlet property="greetingsLabel" destination="bdn-hU-fyh" id="gUu-GY-dhx"/>
                     </connections>
@@ -139,10 +141,67 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fcG-L7-Ui3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="onz-A3-wvn" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="742.02898550724649" y="97.767857142857139"/>
+            <point key="canvasLocation" x="806" y="98"/>
+        </scene>
+        <!--hobby-->
+        <scene sceneID="ju1-5S-FvW">
+            <objects>
+                <viewController id="Ca0-he-UDb" customClass="HobbyViewController" customModule="LoginApp2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FYe-Ej-nbh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="mkp-Oj-8GI"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="hobby" image="gamecontroller" catalog="system" id="OCc-7H-cdR"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SF9-I5-xdd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1590" y="98"/>
+        </scene>
+        <!--photo-->
+        <scene sceneID="wI7-BW-ro5">
+            <objects>
+                <viewController id="ehb-kg-tH0" customClass="PhotoViewController" customModule="LoginApp2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eSY-NN-tUp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Pnb-0L-ftX"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="photo" image="photo.artframe" catalog="system" id="r2H-6D-85b"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cqT-K2-6ng" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2409" y="98"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="UeH-s4-jgw">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="51P-6J-xjl" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mLY-lK-vgP">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="WjE-cQ-ZGf" kind="relationship" relationship="viewControllers" id="9H9-ZX-zSb"/>
+                        <segue destination="Ca0-he-UDb" kind="relationship" relationship="viewControllers" id="3aB-UY-9LG"/>
+                        <segue destination="ehb-kg-tH0" kind="relationship" relationship="viewControllers" id="lpQ-wt-rxC"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c6R-8E-Fml" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1590" y="-630"/>
         </scene>
     </scenes>
     <resources>
+        <image name="command" catalog="system" width="128" height="115"/>
         <image name="eye" width="128" height="128"/>
+        <image name="gamecontroller" catalog="system" width="128" height="80"/>
+        <image name="photo.artframe" catalog="system" width="128" height="93"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

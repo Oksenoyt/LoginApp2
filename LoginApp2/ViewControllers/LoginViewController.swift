@@ -26,8 +26,20 @@ class LoginViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let welcomeVC = segue.destination as? WelcomeViewController else { return }
-        welcomeVC.greetings = userTextField.text
+//        guard let welcomeVC = segue.destination as? WelcomeViewController else { return }
+//        welcomeVC.greetings = userTextField.text
+        guard let tapBarVC = segue.destination as? UITabBarController else { return }
+        guard let viewControllers = tapBarVC.viewControllers else { return }
+        
+        viewControllers.forEach { viewController in
+            if let commonInfoVC = viewController as? CommonInfoViewController {
+                commonInfoVC.view.backgroundColor = .systemRed
+            } else if let hobbyVC = viewController as? HobbyViewController {
+                hobbyVC.view.backgroundColor = .systemBlue
+            } else if let photoVC = viewController as? PhotoViewController {
+                photoVC.view.backgroundColor = .systemCyan
+            }
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
