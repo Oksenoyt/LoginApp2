@@ -12,9 +12,6 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var userTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
-//    private let user = "qwe"
-//    private let password = "asd"
-    
     private let overlayButton = UIButton(type: .custom)
     private let eyeEmpty = UIImage(systemName: "eye")
     private let eyeSlash = UIImage(systemName: "eye.slash")
@@ -35,13 +32,13 @@ class LoginViewController: UIViewController {
             if let commonInfoVC = viewController as? CommonInfoViewController {
                 commonInfoVC.greetings = user.person.name
                 commonInfoVC.basicInfo = user.person.basicInfo
-                commonInfoVC.view.backgroundColor = .systemRed
             } else if let hobbyVC = viewController as? HobbyViewController {
-                hobbyVC.hobby = user.person.hobby
-                hobbyVC.view.backgroundColor = .systemBlue
+                hobbyVC.hobbyOne = String(Hobby.yoga.rawValue)
+                hobbyVC.hobbyTwo = String(Hobby.drawing.rawValue)
+                hobbyVC.hobbyThree = String(Hobby.dancing.rawValue)
+                hobbyVC.hobbyFour = String(Hobby.travaling.rawValue)
             } else if let photoVC = viewController as? PhotoViewController {
                 photoVC.userPhoto = UIImage(named: user.person.photo)
-                photoVC.view.backgroundColor = .systemCyan
             }
         }
     }

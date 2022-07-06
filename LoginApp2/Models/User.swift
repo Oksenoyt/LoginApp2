@@ -11,21 +11,21 @@ struct User {
     let person: Person
     
     static func getUser() -> User {
-            User(
-                login: "qwe",
-                password: "asd",
-                person: Person(
-                    name: "Elena",
-                    basicInfo: "qweqweqwe qweqwe qweqwe qweqwe qweqwe qweqwe",
-                    hobby: [
-                        .dancing,
-                        .drawing,
-                        .yoga,
-                        .travaling
-                    ],
-                    photo: "myPhoto"
-                )
+        User(
+            login: "qwe",
+            password: "asd",
+            person: Person(
+                name: "Elena",
+                basicInfo: "Живу в МСК.\nРаботаю в тестировании банковского ПО уже около 6 лет 😊.\nВот захотелось чего то большего 🤪",
+                hobby: [
+                    .dancing,
+                    .drawing,
+                    .yoga,
+                    .travaling
+                ],
+                photo: "myPhoto"
             )
+        )
     }
 }
 
@@ -36,22 +36,9 @@ struct Person {
     let photo: String
 }
 
-enum Hobby: Character {
-    case yoga = "🧘‍♀️"
-    case dancing = "💃"
-    case drawing = "👩‍🎨"
-    case travaling = "🧳"
-    
-    var definition: String {
-        switch self {
-        case .yoga:
-            return "Почти каждое утро стараюсь делать набор утренних асан"
-        case .dancing:
-            return "Более пяти лет увлекаютсь сальсой"
-        case .drawing:
-            return "Люблю рисовать акварелью на iPad"
-        case .travaling:
-            return "Душа всегда просит путешествий :) "
-        }
-    }
+enum Hobby: String {
+    case yoga = "🧘‍♀️ Каждое утро начинается с йоги"
+    case dancing = "💃 Более пяти лет увлекаютсь сальсой"
+    case drawing = "👩‍🎨 Люблю рисовать акварелью на iPad"
+    case travaling = "🧳 Душа всегда просит путешествий :)"
 }

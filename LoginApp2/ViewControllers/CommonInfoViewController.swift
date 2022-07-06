@@ -8,7 +8,7 @@
 import UIKit
 
 class CommonInfoViewController: UIViewController {
-
+    
     @IBOutlet weak var greetingsLabel: UILabel!
     @IBOutlet weak var basicInfoLabel: UILabel!
     
@@ -18,6 +18,6 @@ class CommonInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         greetingsLabel.text = "Welcome, \(greetings ?? "User")!"
-        basicInfoLabel.text = "Информация о пользователе: \(basicInfo ?? "отсутствует")"
+        basicInfoLabel.text = "Информация о пользователе:\n\n\(basicInfo ?? "отсутствует")"
     }
 }

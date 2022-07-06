@@ -8,7 +8,7 @@
 import UIKit
 
 class PhotoViewController: UIViewController {
-
+    
     @IBOutlet weak var userPhotoImageView: UIImageView!
     
     var userPhoto: UIImage!
