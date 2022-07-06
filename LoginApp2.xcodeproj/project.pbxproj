@@ -17,6 +17,7 @@
 		421394D0286EE69C00783E39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 421394CF286EE69C00783E39 /* Assets.xcassets */; };
 		421394D3286EE69C00783E39 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 421394D1286EE69C00783E39 /* LaunchScreen.storyboard */; };
 		421394DF286F504900783E39 /* CommonInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421394DE286F504900783E39 /* CommonInfoViewController.swift */; };
+		4235CF8E2875691A002F535A /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4235CF8D2875691A002F535A /* TabBarViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		421394D2286EE69C00783E39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		421394D4286EE69C00783E39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		421394DE286F504900783E39 /* CommonInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonInfoViewController.swift; sourceTree = "<group>"; };
+		4235CF8D2875691A002F535A /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			isa = PBXGroup;
 			children = (
 				421394CA286EE69B00783E39 /* LoginViewController.swift */,
+				4235CF8D2875691A002F535A /* TabBarViewController.swift */,
 				421394DE286F504900783E39 /* CommonInfoViewController.swift */,
 				420D205B2874A955007BBB9B /* HobbyViewController.swift */,
 				420D205D2874A968007BBB9B /* PhotoViewController.swift */,
@@ -190,6 +193,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4235CF8E2875691A002F535A /* TabBarViewController.swift in Sources */,
 				421394CB286EE69B00783E39 /* LoginViewController.swift in Sources */,
 				420D205828749E02007BBB9B /* User.swift in Sources */,
 				420D205C2874A955007BBB9B /* HobbyViewController.swift in Sources */,

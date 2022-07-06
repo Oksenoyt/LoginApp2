@@ -175,12 +175,13 @@
             </objects>
             <point key="canvasLocation" x="2409" y="98"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar View Controller-->
         <scene sceneID="UeH-s4-jgw">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="51P-6J-xjl" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="51P-6J-xjl" customClass="TabBarViewController" customModule="LoginApp2" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mLY-lK-vgP">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>

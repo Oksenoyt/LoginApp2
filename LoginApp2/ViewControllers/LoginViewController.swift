@@ -26,13 +26,12 @@ class LoginViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        guard let welcomeVC = segue.destination as? WelcomeViewController else { return }
-//        welcomeVC.greetings = userTextField.text
         guard let tapBarVC = segue.destination as? UITabBarController else { return }
         guard let viewControllers = tapBarVC.viewControllers else { return }
         
         viewControllers.forEach { viewController in
             if let commonInfoVC = viewController as? CommonInfoViewController {
+                commonInfoVC.greetings = userTextField.text
                 commonInfoVC.view.backgroundColor = .systemRed
             } else if let hobbyVC = viewController as? HobbyViewController {
                 hobbyVC.view.backgroundColor = .systemBlue
