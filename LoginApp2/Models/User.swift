@@ -10,8 +10,7 @@ struct User {
     let password: String
     let person: Person
     
-    func getUser() -> [User] {
-        [
+    static func getUser() -> User {
             User(
                 login: "qwe",
                 password: "asd",
@@ -27,7 +26,6 @@ struct User {
                     photo: "myPhoto"
                 )
             )
-        ]
     }
 }
 

@@ -12,13 +12,15 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var userTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
-    private let user = "qwe"
-    private let password = "asd"
+//    private let user = "qwe"
+//    private let password = "asd"
     
     private let overlayButton = UIButton(type: .custom)
     private let eyeEmpty = UIImage(systemName: "eye")
     private let eyeSlash = UIImage(systemName: "eye.slash")
     private var passwordView = true
+    
+    private let user = User.getUser()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,11 +33,14 @@ class LoginViewController: UIViewController {
         
         viewControllers.forEach { viewController in
             if let commonInfoVC = viewController as? CommonInfoViewController {
-                commonInfoVC.greetings = userTextField.text
+                commonInfoVC.greetings = user.person.name
+                commonInfoVC.basicInfo = user.person.basicInfo
                 commonInfoVC.view.backgroundColor = .systemRed
             } else if let hobbyVC = viewController as? HobbyViewController {
+                hobbyVC.hobby = user.person.hobby
                 hobbyVC.view.backgroundColor = .systemBlue
             } else if let photoVC = viewController as? PhotoViewController {
+                photoVC.userPhoto = UIImage(named: user.person.photo)
                 photoVC.view.backgroundColor = .systemCyan
             }
         }
@@ -52,7 +57,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginAction() {
-        guard userTextField.text == user, passwordTextField.text == password else {
+        guard userTextField.text == user.login, passwordTextField.text == user.password else {
             showAlert(
                 title: "Invalid login or password",
                 message: "Please, enter correct username and password",
@@ -64,11 +69,11 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func getUserName() {
-        showAlert(title: "User name:", message: user)
+        showAlert(title: "User name:", message: user.login)
     }
     
     @IBAction func getPassword() {
-        showAlert(title: "Password:", message: password)
+        showAlert(title: "Password:", message: user.password)
     }
     
     @IBAction func togglePassordView(_ sender: Any) {

@@ -10,11 +10,14 @@ import UIKit
 class CommonInfoViewController: UIViewController {
 
     @IBOutlet weak var greetingsLabel: UILabel!
+    @IBOutlet weak var basicInfoLabel: UILabel!
     
     var greetings: String!
+    var basicInfo: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         greetingsLabel.text = "Welcome, \(greetings ?? "User")!"
+        basicInfoLabel.text = "Информация о пользователе: \(basicInfo ?? "отсутствует")"
     }
 }
